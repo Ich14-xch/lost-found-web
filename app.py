@@ -130,7 +130,9 @@ button {{
 """
 
     for p in posts:
-        img = f"<img src='/static/uploads/{p[5]}' width='200'><br>" if p[5] else ""
+        img = ""
+if len(p) > 5 and p[5]:
+    img = f"<img src='/static/uploads/{p[5]}' width='200'><br>"
         html += f"""
 <div class="post">
   {img}
