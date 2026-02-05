@@ -14,9 +14,11 @@ DB_NAME = "database.db"
 
 # ---------- DB ----------
 def get_db():
-    conn = sqlite3.connect("database.db")
-    c = conn.cursor()
+    return sqlite3.connect(DB_NAME)
 
+def init_db():
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
     c.execute("""
     CREATE TABLE IF NOT EXISTS posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,23 +28,6 @@ def get_db():
         contact TEXT,
         image TEXT
     )
-    """)
-
-    conn.commit()
-    return conn
-
-def init_db():
-    conn = get_db()
-    c = conn.cursor()
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS posts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            item_name TEXT,
-            place TEXT,
-            detail TEXT,
-            contact TEXT,
-            image TEXT
-        )
     """)
     conn.commit()
     conn.close()
