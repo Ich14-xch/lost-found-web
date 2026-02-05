@@ -147,10 +147,10 @@ button {{
     for p in posts:
             img = ""
 
-            if p[5]:
+            if len(p) > 5 and p[5]:
               img = f"<img src='/static/uploads/{p[5]}' width='200'><br>"
 
-            html += f"""
+    html += f"""
     <div class="post">
       {img}
       <b>ชื่อของ:</b> {p[1]}<br>
