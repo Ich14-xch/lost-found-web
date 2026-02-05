@@ -15,6 +15,17 @@ DB_NAME = "database.db"
 # ---------- DB ----------
 def get_db():
     return sqlite3.connect(DB_NAME)
+        c.execute("DROP TABLE IF EXISTS posts")
+c.execute("""
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    item_name TEXT,
+    place TEXT,
+    detail TEXT,
+    contact TEXT,
+    image TEXT
+)
+""")
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
