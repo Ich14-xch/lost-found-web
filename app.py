@@ -146,23 +146,23 @@ button {{
 
     for p in posts:
         img = ""
-    
+
         if len(p) > 5 and p[5]:
-        img = f"<img src='/static/uploads/{p[5]}' width='200'><br>"
+           img = f"<img src='/static/uploads/{p[5]}' width='200'><br>"
 
     html += f"""
-<div class="post">
-  {img}
-  <b>ชื่อของ:</b> {p[1]}<br>
-  <b>สถานที่:</b> {p[2]}<br>
-  <b>รายละเอียด:</b> {p[3]}<br>
-  <b>ติดต่อ:</b> {p[4]}<br><br>
+    <div class="post">
+      {img}
+      <b>ชื่อของ:</b> {p[1]}<br>
+      <b>สถานที่:</b> {p[2]}<br>
+      <b>รายละเอียด:</b> {p[3]}<br>
+      <b>ติดต่อ:</b> {p[4]}<br><br>
 
-  <form method="post" action="/delete/{p[0]}" onsubmit="return confirm('ยืนยันการลบ?');">
-    <button style="background:#e74c3c;">ลบ</button>
-  </form>
-</div>
-"""
+      <form method="post" action="/delete/{p[0]}" onsubmit="return confirm('ยืนยันการลบ?');">
+        <button style="background:#e74c3c;">ลบ</button>
+      </form>
+    </div>
+    """
 
     html += "</body></html>"
     return html
