@@ -145,7 +145,7 @@ button {{
 """
 
     for p in posts:
-    img = ""
+            img = ""
     if p[5]:
         img = f"<img src='/static/uploads/{p[5]}' width='200'><br>"
 
